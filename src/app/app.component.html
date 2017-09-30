@@ -1,17 +1,47 @@
-<md-toolbar class="toolbar" color="primary">
+<md-toolbar class="toolbar mat-elevation-z6" color="primary">
   <span>Study-O</span>
   <span class="example-spacer"></span>
-  <md-icon class="example-icon">favorite</md-icon>
-  <md-icon class="example-icon">delete</md-icon>
+  
 </md-toolbar>
 
-<div class="daysContainer">
-  <md-grid-list cols="4" gutterSize="10" rowHeight="4:3">
-    <md-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows" [style.background]="tile.color">
-      <md-grid-tile-header>
-        Teste
-      </md-grid-tile-header>
-      {{tile.text}}
+<div class="days-description">
+  <md-grid-list cols="7" gutterSize="10" rowHeight="25">
+    <md-grid-tile class="days-description-content" *ngFor="let dayDesc of daysDesc" [style.background]="">
+      {{dayDesc.text}}
+    </md-grid-tile>
+  </md-grid-list>
+</div>
+
+<div class="week-container">
+  <md-grid-list cols="7" gutterSize="10" rowHeight="240">
+    <md-grid-tile *ngFor="let tile of tiles" [colspan]="1" [rowspan]="1" [style.background]="tile.isActiveDay?'white':'#DDD'" 
+    class="mat-elevation-z2 days-container">
+      <md-list>
+        <md-list-item class="subject-list-container">
+          <md-card class="mat-elevation-z1 subject-container-angular">
+            <md-card-header>
+              <md-card-subtitle class="subject-subtitle">20:00 ~ 21:00</md-card-subtitle>
+            </md-card-header>
+            ANGULAR
+          </md-card>
+        </md-list-item>
+        <md-list-item  class="subject-list-container">
+          <md-card class="mat-elevation-z1 subject-container-wildfly">
+            <md-card-header>
+              <md-card-subtitle class="subject-subtitle">21:00 ~ 22:00</md-card-subtitle>
+            </md-card-header>
+            WILDFLY
+          </md-card>
+        </md-list-item>
+        <md-list-item  class="subject-list-container">
+            <md-card class="mat-elevation-z1 subject-container-java">
+              <md-card-header>
+                <md-card-subtitle class="subject-subtitle">22:00 ~ 23:00</md-card-subtitle>
+              </md-card-header>
+              JAVA
+            </md-card>
+          </md-list-item>
+      </md-list>
     </md-grid-tile>
   </md-grid-list>
 </div>

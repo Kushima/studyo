@@ -8,10 +8,23 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app';
 
+  daysDesc = [
+    {text: 'S'},
+    {text: 'T'},
+    {text: 'Q'},
+    {text: 'Q'},
+    {text: 'S'},
+    {text: 'S'},
+    {text: 'D'},
+  ];
+
   tiles = [
-    {text: 'One', cols: 1, rows: 1, color: 'lightblue'},
-    {text: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
-    {text: 'Four', cols: 1, rows: 1, color: '#DDBDF1'},
+    {text: '', isActiveDay: false},
+    {text: '', isActiveDay: false},
+    {text: '', isActiveDay: true},
+    {text: '', isActiveDay: false},
+    {text: '', isActiveDay: false},
+    {text: '', isActiveDay: false},
+    {text: '', isActiveDay: false},
   ];
 }
