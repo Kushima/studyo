@@ -1,7 +1,8 @@
+import { MateriaService } from './materia/materia.service';
 import { CustomMaterialModule } from './custom-material/custom-material-module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -10,9 +11,10 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [MateriaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -14,7 +14,7 @@
 
 <div class="week-container">
   <md-grid-list cols="7" gutterSize="10" rowHeight="240">
-    <md-grid-tile *ngFor="let tile of tiles" [colspan]="1" [rowspan]="1" [style.background]="tile.isActiveDay?'white':'#DDD'" 
+    <md-grid-tile *ngFor="let tile of tiles" [colspan]="1" [rowspan]="1" [style.background]="tile.isActiveDay?'#DDD':'white'" 
     class="mat-elevation-z2 days-container">
       <md-list>
         <md-list-item class="subject-list-container">
