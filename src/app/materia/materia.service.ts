@@ -8,21 +8,21 @@ import 'rxjs/add/operator/toPromise';
 export class MateriaService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
-  private materiaUrl = 'http://localhost:8080/people';
+  private materiaUrl = 'http://localhost:8080/subject';
 
   constructor(private http: Http) { }
 
-  create(first: string, last: string): Promise<Materia> {
-    console.log('O que foi para o mongo: ' + JSON.stringify({firstName: first, lastName: last}));
+  create(materia: Materia): Promise<Materia> {
+    console.log('O que foi para o mongo: ' + JSON.stringify(materia));
     return this.http
-      .post(this.materiaUrl, JSON.stringify({firstName: first, lastName: last}), {headers: this.headers})
+      .post(this.materiaUrl, JSON.stringify(materia), {headers: this.headers})
       .toPromise()
       .then(res => res.json().data as Materia)
       .catch(this.handleError);
   }
 
   private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error); // for demo purposes only
+    console.log('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
   }
 }

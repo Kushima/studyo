@@ -1,5 +1,11 @@
 export class Materia {
-    id: string;
-    firstName: string;
-    lastName: string;
+    id?: string;
+    nome?: string;
+    cor?: string;
+    descricao?: string;
 }
+
+
+
+
+

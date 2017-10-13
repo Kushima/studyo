@@ -1,0 +1,25 @@
+<div class="days-description">
+  <md-grid-list cols="7" gutterSize="10" rowHeight="25">
+    <md-grid-tile class="days-description-content" *ngFor="let dayDesc of daysDesc" [style.background]="">
+      {{dayDesc.text}}
+    </md-grid-tile>
+  </md-grid-list>
+</div>
+
+<div class="week-container">
+  <md-grid-list cols="7" gutterSize="10" rowHeight="240">
+    <md-grid-tile *ngFor="let materia of materias" [colspan]="1" [rowspan]="1" [style.background]="'#' + materia.cor" 
+    class="mat-elevation-z2 days-container">
+      <md-list>
+        <md-list-item class="subject-list-container">
+          <md-card class="mat-elevation-z1 subject-container-angular">
+            <md-card-header>
+              <md-card-subtitle class="subject-subtitle">{{materia.descricao}}</md-card-subtitle>
+            </md-card-header>
+            {{materia.nome}}
+          </md-card>
+        </md-list-item>
+      </md-list>
+    </md-grid-tile>
+  </md-grid-list>
+</div>

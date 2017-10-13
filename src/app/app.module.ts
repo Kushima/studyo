@@ -4,15 +4,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
+import { MateriaComponent } from './materia/materia.component';
+
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MateriaComponent
   ],
   imports: [
     BrowserModule,
     CustomMaterialModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
   providers: [MateriaService],
   bootstrap: [AppComponent]
