@@ -2,13 +2,15 @@ import { MateriaService } from './materia.service';
 import { Materia} from './materia';
 import { Component, OnInit } from '@angular/core';
 
+declare var jquery: any;
+declare var $: any;
+
 @Component({
   selector: 'app-materia',
   templateUrl: './materia.component.html',
   styleUrls: ['./materia.component.scss']
 })
 export class MateriaComponent implements OnInit {
-
   title = 'app';
 
     daysDesc = [
@@ -37,6 +39,10 @@ export class MateriaComponent implements OnInit {
 
     ngOnInit(): void {
       this.addMateria();
+
+      $(function () {
+        $('[data-toggle="popover"]').popover()
+      });
     }
 
     addMateria(): void {
