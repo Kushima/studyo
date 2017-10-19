@@ -38,11 +38,19 @@ export class MateriaComponent implements OnInit {
     constructor(private materiaService: MateriaService) { }
 
     ngOnInit(): void {
-      this.addMateria();
+      // this.addMateria();
+      this.getSubjects();
 
+      // code to make help popups work
       $(function () {
-        $('[data-toggle="popover"]').popover()
+        $('[data-toggle="popover"]').popover();
       });
+    }
+
+    getSubjects(): void {
+      this.materiaService
+          .getSubjects()
+          .then(materias => this.materias = materias);
     }
 
     addMateria(): void {

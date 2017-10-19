@@ -12,8 +12,14 @@ export class MateriaService {
 
   constructor(private http: Http) { }
 
+  getSubjects(): Promise<Materia[]> {
+    return this.http.get(this.materiaUrl)
+               .toPromise()
+               .then(response => response.json()._embedded.subject as Materia[])
+               .catch(this.handleError);
+  }
+
   create(materia: Materia): Promise<Materia> {
-    console.log('O que foi para o mongo: ' + JSON.stringify(materia));
     return this.http
       .post(this.materiaUrl, JSON.stringify(materia), {headers: this.headers})
       .toPromise()

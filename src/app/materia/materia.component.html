@@ -1,9 +1,4 @@
-<button 
-  type="button" 
-  class="btn btn-lg btn-danger" 
-  data-toggle="popover" 
-  title="Popover title" 
-  data-content="And here's some amazing content. It's very engaging. Right?">
+<button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">
   Click to toggle popover
 </button>
 
@@ -16,13 +11,13 @@
   </md-grid-list>
 </div>
 -->
-<div class="week-container">
-  <div *ngFor="let materia of materias" class="card" style="width: 20rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
-    <div class="card-body">
-      <h4 class="card-title">{{materia.nome}}</h4>
-      <p class="card-text">{{materia.descricao}}</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+<div class="card-deck">
+  <div *ngFor="let materia of materias" class="card col-12 col-md-12 col-sm-12">
+    <img class="card-img-top" src="{{materia.imgUrl}}" alt="Card image cap">
+    <div class="card-body" [style.backgroundColor]="'#' + materia.color">
+      <h4 class="card-title">{{materia.name}}</h4>
+      <p class="card-text">{{materia.description}}</p>
+      <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
     </div>
   </div>
 </div>
