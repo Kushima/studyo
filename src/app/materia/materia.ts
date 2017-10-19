@@ -1,8 +1,9 @@
 export class Materia {
     id?: string;
-    nome?: string;
-    cor?: string;
-    descricao?: string;
+    name?: string;
+    color?: string;
+    description?: string;
+    imgUrl?: string;
 }
 
 
