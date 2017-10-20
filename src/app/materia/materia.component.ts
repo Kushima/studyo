@@ -33,7 +33,7 @@ export class MateriaComponent implements OnInit {
       {text: '', isActiveDay: false},
     ];
 
-    materias: Materia[] = [];
+    subjects: Materia[] = [];
 
     constructor(private materiaService: MateriaService) { }
 
@@ -50,7 +50,7 @@ export class MateriaComponent implements OnInit {
     getSubjects(): void {
       this.materiaService
           .getSubjects()
-          .then(materias => this.materias = materias);
+          .then(subjects => this.subjects = subjects);
     }
 
     addMateria(): void {
@@ -64,7 +64,7 @@ export class MateriaComponent implements OnInit {
       console.log('iniciando adição de pessoa...');
       this.materiaService.create(materia);
 
-      this.materias.push(materia);
+      this.subjects.push(materia);
     }
 
 }
