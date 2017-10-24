@@ -23,14 +23,59 @@
   </div>
 </div>
 -->
-<form>
-  <div class="form-group">
-    <label for="select-subjects">Example select</label>
-    <select class="form-control form-control-sm"  name="select-subjects" id="select-subjects">
-      <option *ngFor="let subject of subjects" [value]="subject.id" class="card col-12 col-md-12 col-sm-12">
-        {{subject.name}}
-      </option>
-    </select>
+<form #subjectDayForm="ngForm">
+  <div class="form-row justify-content-md-center">
+    <div class="form-group col-sm-12 col-md-6 col-lg-6">
+      <label for="select-subjects">Select the subject</label>
+      <select [(ngModel)]="newSubjectDay.subject" class="custom-select form-control form-control-lg" name="select-subjects" id="select-subjects">
+        <option *ngFor="let subject of subjects" [value]="subject.id">
+          {{subject.name}}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="form-row justify-content-md-center">
+    <div class="form-group col-sm-12 col-md-3 col-lg-3">
+      <label for="initial-hour">Initial Time</label>
+      <div class="input-group">
+        <select [(ngModel)]="newSubjectDay.startTimeHour" class="custom-select form-control form-control-lg" name="initial-hour" id="initial-hour">
+          <option *ngFor="let hour of hours" [value]="hour">{{hour}}</option>
+        </select>
+        <select [(ngModel)]="newSubjectDay.startTimeMinute" class="custom-select form-control form-control-lg" name="initial-minute">
+          <option *ngFor="let minute of minutes" [value]="minute">{{minute}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group col-sm-12 col-md-3 col-lg-3">
+      <label for="end-hour">End Time</label>
+      <div class="input-group">
+        <select [(ngModel)]="newSubjectDay.endTimeHour" class="custom-select form-control form-control-lg" name="end-hour" id="end-hour">
+          <option *ngFor="let hour of hours" [value]="hour">{{hour}}</option>
+        </select>
+        <select [(ngModel)]="newSubjectDay.endTimeMinute" class="custom-select form-control form-control-lg" name="end-minute">
+          <option *ngFor="let minute of minutes" [value]="minute">{{minute}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="form-row justify-content-md-center">
+    <div class="form-group col-sm-12 col-md-6 col-lg-6">
+      <label for="week-day">Week Day</label>
+      <div class="input-group">
+        <select [(ngModel)]="newSubjectDay.day" class="custom-select form-control form-control-lg" name="week-day" id="week-day">
+          <option *ngFor="let weekDay of weekDays" [value]="weekDay.val">{{weekDay.desc}}</option>
+        </select>
+      </div>
+    </div>
   </div>
 </form>
-<button class="btn btn-primary">TESTE</button>
+<div class="form-row justify-content-md-center">
+  <div class="col-sm-12 col-md-6 col-lg-6">
+    <button class="btn-lg btn-primary">Add</button>
+  </div>
+</div>
+<div class="form-row justify-content-md-center">
+  <div class="col-sm-12 col-md-6 col-lg-6">
+    <pre>{{newSubjectDay | json}}</pre>
+  </div>
+</div>

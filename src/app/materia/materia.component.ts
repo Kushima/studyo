@@ -1,3 +1,4 @@
+import { SubjectDay } from './../subject-day/subject-day';
 import { MateriaService } from './materia.service';
 import { Materia} from './materia';
 import { Component, OnInit } from '@angular/core';
@@ -13,58 +14,55 @@ declare var $: any;
 export class MateriaComponent implements OnInit {
   title = 'app';
 
-    daysDesc = [
-      {text: 'S'},
-      {text: 'T'},
-      {text: 'Q'},
-      {text: 'Q'},
-      {text: 'S'},
-      {text: 'S'},
-      {text: 'D'},
-    ];
+  // valid values for hours
+  hours = ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12',
+    '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'];
 
-    tiles = [
-      {text: '', isActiveDay: false},
-      {text: '', isActiveDay: false},
-      {text: '', isActiveDay: true},
-      {text: '', isActiveDay: false},
-      {text: '', isActiveDay: false},
-      {text: '', isActiveDay: false},
-      {text: '', isActiveDay: false},
-    ];
+  // valid values for minutes
+  minutes = ['00', '15', '30', '45'];
 
-    subjects: Materia[] = [];
+  // valid values for week days
+  weekDays = [ { val: 'MON', desc: 'Monday' },
+  { val: 'TUE', desc: 'Tuesday' },
+  { val: 'WED', desc: 'Wednesday' },
+  { val: 'THU', desc: 'Thursday' },
+  { val: 'FRI', desc: 'Friday' },
+  { val: 'SAT', desc: 'Saturday' },
+  { val: 'SUN', desc: 'Sunday' } ];
 
-    constructor(private materiaService: MateriaService) { }
+  subjects: Materia[] = [];
+  newSubjectDay: SubjectDay = {};
 
-    ngOnInit(): void {
-      // this.addMateria();
-      this.getSubjects();
+  constructor(private materiaService: MateriaService) { }
 
-      // code to make help popups work
-      $(function () {
-        $('[data-toggle="popover"]').popover();
-      });
-    }
+  ngOnInit(): void {
+    // this.addMateria();
+    this.getSubjects();
 
-    getSubjects(): void {
-      this.materiaService
-          .getSubjects()
-          .then(subjects => this.subjects = subjects);
-    }
+    // code to make help popups work
+    $(function () {
+      $('[data-toggle="popover"]').popover();
+    });
+  }
 
-    addMateria(): void {
-      const materia: Materia = {
-        id: 'angular',
-        nome: 'Angular',
-        cor: '333333',
-        descricao: 'Angular is a framework for building client' +
-       'applications in HTML and either JavaScript or a language like TypeScript that compiles to JavaScript.'
-      };
-      console.log('iniciando adição de pessoa...');
-      this.materiaService.create(materia);
+  getSubjects(): void {
+    this.materiaService
+        .getSubjects()
+        .then(subjects => this.subjects = subjects);
+  }
 
-      this.subjects.push(materia);
-    }
+  subjectDay(): void {
+    const materia: Materia = {
+      id: 'angular',
+      name: 'Angular',
+      color: '333333',
+      description: 'Angular is a framework for building client' +
+      'applications in HTML and either JavaScript or a language like TypeScript that compiles to JavaScript.'
+    };
+    console.log('iniciando adição de pessoa...');
+    this.materiaService.create(materia);
+
+    this.subjects.push(materia);
+  }
 
 }
