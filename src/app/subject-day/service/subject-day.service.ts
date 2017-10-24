@@ -1,6 +1,6 @@
-import { SubjectDay } from './subject-day';
+import { SubjectDay } from '../model/subject-day';
 import { Injectable } from '@angular/core';
-import { Materia } from '../materia/materia';
+import { Materia } from '../../materia/model/materia';
 import { Headers, Http } from '@angular/http';
 @Injectable()
 export class SubjectDayService {
@@ -21,7 +21,7 @@ export class SubjectDayService {
     return this.http
       .post(this.materiaUrl, JSON.stringify(subjectDay), {headers: this.headers})
       .toPromise()
-      .then(res => res.json().data as SubjectDay)
+      .then(res => res.json() as SubjectDay)
       .catch(this.handleError);
   }
 

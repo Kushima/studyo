@@ -1,3 +1,4 @@
+import { SubjectDayService } from './subject-day/service/subject-day.service';
 import { MateriaService } from './materia/materia.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -19,7 +20,7 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [MateriaService],
+  providers: [MateriaService, SubjectDayService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,8 @@
-import { SubjectDay } from './../subject-day/subject-day';
+import { SubjectDayConverter } from './../subject-day/model/converter/subject-day.converter';
+import { SubjectDayService } from './../subject-day/service/subject-day.service';
+import { SubjectDayVO } from './../subject-day/model/subject-day-vo';
 import { MateriaService } from './materia.service';
-import { Materia} from './materia';
+import { Materia} from './model/materia';
 import { Component, OnInit } from '@angular/core';
 
 declare var jquery: any;
@@ -31,9 +33,11 @@ export class MateriaComponent implements OnInit {
   { val: 'SUN', desc: 'Sunday' } ];
 
   subjects: Materia[] = [];
-  newSubjectDay: SubjectDay = {};
+  newSubjectDay: SubjectDayVO = {};
 
-  constructor(private materiaService: MateriaService) { }
+  constructor(
+    private materiaService: MateriaService,
+    private subjectDayService: SubjectDayService) { }
 
   ngOnInit(): void {
     // this.addMateria();
@@ -49,6 +53,14 @@ export class MateriaComponent implements OnInit {
     this.materiaService
         .getSubjects()
         .then(subjects => this.subjects = subjects);
+  }
+
+  addSubjectDay(): void {
+    const converter = new SubjectDayConverter();
+    this.subjectDayService.create(converter.toDB(this.newSubjectDay))
+      .then(subjectDay => {
+        console.log('SubjectDay added:' + JSON.stringify(subjectDay));
+      });
   }
 
   subjectDay(): void {

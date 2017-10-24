@@ -1,6 +1,6 @@
 import { MateriaService } from './materia/materia.service';
 import { Component, OnInit } from '@angular/core';
-import { Materia } from './materia/materia';
+import { Materia } from './materia/model/materia';
 
 @Component({
   selector: 'app-root',

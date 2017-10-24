@@ -4,6 +4,12 @@ export class Materia {
     color?: string;
     description?: string;
     imgUrl?: string;
+
+    constructor(
+        id?: string
+    ) {
+        this.id = id;
+    }
 }
 
 

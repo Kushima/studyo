@@ -1,4 +1,4 @@
-import { Materia } from './materia';
+import { Materia } from './model/materia';
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 
