@@ -1,0 +1,22 @@
+<div class="row seven-cols">
+  <div class="col-sm-12 col-md-6 col-lg-3" *ngFor="let weekDay of weekDays">
+  <div class="card card-subject-day-container">
+    <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+    <div class="card-body bg-white text-dark">
+      <h4 class="card-title card-title-week-day-title text-uppercase display-4">{{weekDay.desc}}</h4>
+    </div>
+    <ul class="list-group list-group-flush">
+      <ng-container *ngFor="let subjectDay of subjectDays">
+        <li class="list-group-item list-container-subject-day" *ngIf="subjectDay.day == weekDay.val">
+          <div class="card card-subject-day">
+            <div class="card-body">
+              <h4 class="card-title text-uppercase bg-white text-dark">{{ subjectDay.subject.id }}</h4>
+              <h6 class="card-subtitle card-subtitle-time text-muted display-4">{{ subjectDay.startTime | slice:0:5 }} ~ {{ subjectDay.endTime | slice:0:5 }}</h6>
+            </div>
+          </div>  
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+  </div>
+</div>

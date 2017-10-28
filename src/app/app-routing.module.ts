@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { MyWeekComponent } from './my-week/my-week.component';
 import { MateriaComponent } from './materia/materia.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/materia', pathMatch: 'full' },
-  { path: 'materia',  component: MateriaComponent }
+  { path: '', redirectTo: '/new-subject', pathMatch: 'full' },
+  { path: 'my-week',  component: MyWeekComponent },
+  { path: 'new-subject',  component: MateriaComponent }
 ];
 
 @NgModule({

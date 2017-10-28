@@ -10,12 +10,12 @@ export class SubjectDayService {
 
   constructor(private http: Http) { }
 
-  // getSubjects(): Promise<Materia[]> {
-  //   return this.http.get(this.materiaUrl)
-  //              .toPromise()
-  //              .then(response => response.json()._embedded.subject as Materia[])
-  //              .catch(this.handleError);
-  // }
+  getSubjectDays(): Promise<SubjectDay[]> {
+    return this.http.get(this.materiaUrl)
+               .toPromise()
+               .then(response => response.json()._embedded.subjectDay as SubjectDay[])
+               .catch(this.handleError);
+  }
 
   create(subjectDay: SubjectDay): Promise<SubjectDay> {
     return this.http

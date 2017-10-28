@@ -1,12 +1,10 @@
+import { Constants } from './../constants/constants';
 import { SubjectDayConverter } from './../subject-day/model/converter/subject-day.converter';
 import { SubjectDayService } from './../subject-day/service/subject-day.service';
 import { SubjectDayVO } from './../subject-day/model/subject-day-vo';
 import { MateriaService } from './materia.service';
 import { Materia} from './model/materia';
 import { Component, OnInit } from '@angular/core';
-
-declare var jquery: any;
-declare var $: any;
 
 @Component({
   selector: 'app-materia',
@@ -23,14 +21,7 @@ export class MateriaComponent implements OnInit {
   // valid values for minutes
   minutes = ['00', '15', '30', '45'];
 
-  // valid values for week days
-  weekDays = [ { val: 'MON', desc: 'Monday' },
-  { val: 'TUE', desc: 'Tuesday' },
-  { val: 'WED', desc: 'Wednesday' },
-  { val: 'THU', desc: 'Thursday' },
-  { val: 'FRI', desc: 'Friday' },
-  { val: 'SAT', desc: 'Saturday' },
-  { val: 'SUN', desc: 'Sunday' } ];
+  weekDays = Constants.WEEK_DAYS;
 
   subjects: Materia[] = [];
   newSubjectDay: SubjectDayVO = {};
@@ -42,11 +33,6 @@ export class MateriaComponent implements OnInit {
   ngOnInit(): void {
     // this.addMateria();
     this.getSubjects();
-
-    // code to make help popups work
-    $(function () {
-      $('[data-toggle="popover"]').popover();
-    });
   }
 
   getSubjects(): void {

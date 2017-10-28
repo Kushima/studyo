@@ -1,0 +1,29 @@
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+
+.card-subject-day-container {
+  margin-bottom: 17px;
+}
+
+.card-title-week-day-title {
+  margin: 0;
+  font-size: 25px;
+}
+
+.list-container-subject-day {
+  padding: 0;
+}
+
+.card-subject-day {
+  border: 0;
+  margin: 0 !important;
+}
+
+.card-subtitle-time {
+  font-size: 20px;
+}
+
+  @media (min-width: 1200px) {
+    .seven-cols .col-lg-1 {
+      width: 14.285714285714285714285714285714%;
+    }
+  }

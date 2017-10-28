@@ -8,11 +8,13 @@ import { AppComponent } from './app.component';
 import { MateriaComponent } from './materia/materia.component';
 
 import { AppRoutingModule } from './app-routing.module';
+import { MyWeekComponent } from './my-week/my-week.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MateriaComponent
+    MateriaComponent,
+    MyWeekComponent
   ],
   imports: [
     BrowserModule,
