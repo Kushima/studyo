@@ -9,12 +9,14 @@ import { MateriaComponent } from './materia/materia.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { MyWeekComponent } from './my-week/my-week.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MateriaComponent,
-    MyWeekComponent
+    MyWeekComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

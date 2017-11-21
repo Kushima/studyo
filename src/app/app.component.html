@@ -1,17 +1,27 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">StudyO</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
+    aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/my-week">My Week <span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="/my-week">My Week
+          <span class="sr-only">(current)</span>
+        </a>
       </li>
       <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink="/new-subject">New Subject <span class="sr-only">(current)</span></a>
-        </li>
+        <a class="nav-link" routerLink="/new-subject">New Subject
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a href="#" class="nav-link" (click)="signOut();">Sign out</a>
+      </li>
     </ul>
     <form class="form-inline">
       <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
