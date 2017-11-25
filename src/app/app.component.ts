@@ -31,6 +31,9 @@ export class AppComponent implements OnInit {
   }
 
   signOut() {
+    localStorage.clear();
+
+    alert('saiu');
     gapi.load('auth2', () => {
       this.auth2 = gapi.auth2.init({
         client_id: '678647856070-hq2qe321rqilfs4fgosd98nn6ofm86jk.apps.googleusercontent.com',
@@ -39,8 +42,12 @@ export class AppComponent implements OnInit {
       });
     });
 
+    // const auth2 = gapi.auth2.getAuthInstance();
+    alert('saiu');
     this.auth2.signOut().then(function () {
+      alert('saiu');
       console.log('User signed out.');
     });
+
   }
 }

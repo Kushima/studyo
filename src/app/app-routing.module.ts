@@ -6,7 +6,7 @@ import { MyWeekComponent } from './my-week/my-week.component';
 import { MateriaComponent } from './materia/materia.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/my-week', pathMatch: 'full' },
   { path: 'login',  component: LoginComponent },
   { path: 'my-week',  component: MyWeekComponent },
   { path: 'new-subject',  component: MateriaComponent }

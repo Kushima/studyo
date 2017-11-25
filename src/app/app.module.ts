@@ -10,6 +10,7 @@ import { MateriaComponent } from './materia/materia.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MyWeekComponent } from './my-week/my-week.component';
 import { LoginComponent } from './login/login.component';
+import { LoginService } from './login/login.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [MateriaService, SubjectDayService],
+  providers: [MateriaService, SubjectDayService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
