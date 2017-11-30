@@ -24,6 +24,8 @@ export class SubjectDayService {
 
   create(subjectDay: SubjectDay): Promise<SubjectDay> {
     const headers = new Headers();
+    const idToken = localStorage.getItem('idToken');
+    headers.append('Authorization', 'Bearer ' + idToken);
     headers.append('Content-Type', 'application/json');
     return this.http
       .post(this.materiaUrl, JSON.stringify(subjectDay), {headers: headers})
