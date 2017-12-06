@@ -1,3 +1,4 @@
+import { Globals } from './../global/globals';
 import { SubjectDayService } from './../subject-day/service/subject-day.service';
 import { LoginService } from './login.service';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
@@ -15,16 +16,20 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
   public auth2: any;
 
-  constructor(private router: Router, private subjectDayService: SubjectDayService) {}
+  public userImg: string;
+  public userName: string;
+
+  constructor(private router: Router, private subjectDayService: SubjectDayService, private globals: Globals) {}
 
   ngOnInit() {
     if (localStorage.getItem('idToken')) {
+      this.userImg = localStorage.getItem('userImg');
+      this.userName = localStorage.getItem('userName');
       this.router.navigateByUrl('my-week');
     }
   }
 
   public googleInit() {
-    // this.router.navigateByUrl('my-week');
     // get the user from google sign in
     gapi.load('auth2', () => {
       this.auth2 = gapi.auth2.init({
@@ -54,12 +59,14 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
           // TODO: DONT FORGET TO REMOVE THIS LOGS
           localStorage.setItem('idToken', googleUser.getAuthResponse().id_token);
+          localStorage.setItem('userImg', profile.getImageUrl());
+          localStorage.setItem('userName', profile.getName());
 
           // this.router.navigateByUrl('my-week');
         } else {
           alert('que pena, você foi embora :(');
           console.log('QUEM É VOCÊ???');
-          
+
           // this.router.navigate(['/login']);
         }
       };
@@ -69,6 +76,8 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
       this.attachSignin(document.getElementById('googleSignInButton'));
     });
+
+    this.globals.gapi = gapi;
   }
 
   public attachSignin(element) {
@@ -86,12 +95,24 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
         if (idToken) {
           localStorage.setItem('idToken', googleUser.getAuthResponse().id_token);
+          localStorage.setItem('userImg', profile.getImageUrl());
+          localStorage.setItem('userName', profile.getName());
           location.reload();
         }
 
       }, (error) => {
         console.log(JSON.stringify(error, undefined, 2));
     });
+  }
+
+  signOut() {
+    localStorage.clear();
+
+    this.auth2 = gapi.auth2.getAuthInstance();
+    this.auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+
   }
 
   ngAfterViewInit() {

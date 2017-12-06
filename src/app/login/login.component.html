@@ -1,1 +1,12 @@
-<div class="g-signin2" data-onsuccess="onSignIn" data-width="240" data-height="50" data-longtitle="true" id="googleSignInButton"></div>  
+<div *ngIf="!userImg" class="g-signin2 google-button" data-onsuccess="onSignIn" data-width="240" data-height="50" data-longtitle="true"
+  id="googleSignInButton"></div>
+
+<span class="navbar-text" *ngIf="userImg">
+<img [src]='userImg' class="rounded-circle user-img" />
+</span>
+<span class="navbar-text p-0">
+  {{ userName }}
+</span>
+<span class="navbar-text p-0" *ngIf="userImg">
+  <a href="#" class="nav-link" (click)="signOut();">Sign out</a>
+</span>

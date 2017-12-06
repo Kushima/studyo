@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { MyWeekComponent } from './my-week/my-week.component';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/login.service';
+import { Globals } from './global/globals';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { LoginService } from './login/login.service';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [MateriaService, SubjectDayService, LoginService],
+  providers: [MateriaService, SubjectDayService, LoginService, Globals],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
